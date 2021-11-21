@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">PMA_LV1</string>
+    <string name="btnUnos">Unos</string>
+    <string name="hintIme">Ime..</string>
+    <string name="hintPredmet">Naziv predmeta..</string>
+    <string name="btnNazad">Povratak</string>
+    <string name="hintPrezime">Prezime..</string>
+    <string name="datumRodenja">Datum rodenja</string>
+    <string name="hintDatumRodenja">Unesite datum rodenja..</string>
+    <string name="hintProfesor">Unesite ime i prezime prof..</string>
+    <string name="hintAkGod">Akademska godina..</string>
+    <string name="hintPredavanja">Sati predavanja..</string>
+    <string name="hintLv">Sati labosa..</string>
+    <string name="imeKorisnik">Ime: </string>
+    <string name="prezimeKorisnik">Prezime: </string>
+    <string name="datumRodenjaKorisnik">Datum rodenja: </string>
+    <string name="nazivPredmetaKorisnik">Naziv predmeta: </string>
+    <string name="akGodKorinsik">Akademska godina: </string>
+    <string name="brojPredavanjaKorisnik">Sati predavanja: </string>
+    <string name="brojLabosaKorisnik">Sati labosa: </string>
+    <string name="profesorKorisnik">Profesor: </string>
+    <string name="header">Studenti</string>
+
+</resources>
