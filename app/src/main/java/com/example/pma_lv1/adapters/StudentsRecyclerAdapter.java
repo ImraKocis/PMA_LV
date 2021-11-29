@@ -1,4 +1,4 @@
-package com.example.pma_lv1;
+package com.example.pma_lv1.adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -9,8 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.pma_lv1.R;
+import com.example.pma_lv1.models.Student;
+import com.example.pma_lv1.viewModels.StudentVM;
+
 import java.util.List;
-import java.util.Objects;
 
 public class StudentsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -40,15 +43,15 @@ public class StudentsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int position){
         if(getItemViewType(position) == STUDENT){
             StudentViewHolder studentViewHolder = (StudentViewHolder) viewHolder;
-            Student student = (Student) dataList.get(position);
+            StudentVM student = (StudentVM) dataList.get(position);
             studentViewHolder.tvName.setText(
-                    ((Student) dataList.get(position)).getName()
+                    student.getName()
             );
             studentViewHolder.tvSurname.setText(
-                    ((Student) dataList.get(position)).getSurname()
+                    student.getSurname()
             );
             studentViewHolder.tvSubject.setText(
-                    ((Student) dataList.get(position)).getSubject()
+                   student.getSubject()
             );
         }else{
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) viewHolder;
@@ -63,7 +66,7 @@ public class StudentsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public int getItemViewType(int position) {
-        if(dataList.get(position) instanceof Student){
+        if(dataList.get(position) instanceof StudentVM){
             return STUDENT;
         }else{
             return HEADER;
@@ -76,7 +79,7 @@ public class StudentsRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
             tvHeader = itemView.findViewById(R.id.header);
         }
     }
-    public class StudentViewHolder extends  RecyclerView.ViewHolder{
+    public class StudentViewHolder extends RecyclerView.ViewHolder{
         TextView tvName;
         TextView tvSurname;
         TextView tvSubject;

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pma_lv1">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pma_lv1"
+    >
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -9,6 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PMA_LV1">
+        <activity
+            android:name=".CreateNewRecordActivity"
+            android:exported="true" />
         <activity
             android:name=".AddStudentActivity"
             android:exported="true" />
@@ -29,7 +37,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

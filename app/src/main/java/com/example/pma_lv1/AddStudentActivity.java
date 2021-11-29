@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.pma_lv1.models.Storage;
+import com.example.pma_lv1.models.Student;
+import com.example.pma_lv1.viewModels.StudentVM;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class AddStudentActivity extends AppCompatActivity {
@@ -25,7 +28,7 @@ public class AddStudentActivity extends AppCompatActivity {
         etName = (TextInputEditText) findViewById(R.id.etName);
         etSurname = (TextInputEditText) findViewById(R.id.etSurname);
         etSubject = (TextInputEditText) findViewById(R.id.etSubject);
-        Student student = new Student(
+        StudentVM student = new StudentVM(
                 "Ime: " + (etName.getText() != null ? etName.getText().toString() : "N/A"),
                 "Prezime: " + (etSurname.getText() != null ? etSurname.getText().toString() : "N/A"),
                 "Predmet: " + (etSubject.getText() != null ? etSubject.getText().toString() : "N/A")

@@ -8,6 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.pma_lv1.adapters.StudentsRecyclerAdapter;
+import com.example.pma_lv1.models.Storage;
+import com.example.pma_lv1.viewModels.StudentVM;
+
 import java.util.List;
 
 public class FirstActivity extends AppCompatActivity {
@@ -25,14 +29,14 @@ public class FirstActivity extends AppCompatActivity {
 
         Storage StorageSingle = Storage.getInstance();
         List<Object> students = StorageSingle.getStudents();
-        Student s = new Student("","","Trenutno nema studenata");
+        StudentVM s = new StudentVM("","","Trenutno nema studenata");
         if (students.size()==0){
             students.add("Studenti");
             students.add(s);
         }else{
-            Student a = (Student) students.get(1);
-            if (a.getSubject()=="Trenutno nema studenata") students
-                    .remove(1);
+            StudentVM a = (StudentVM) students.get(1);
+            if (a.getSubject()=="Trenutno nema studenata")
+                students.remove(1);
         }
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -40,8 +44,8 @@ public class FirstActivity extends AppCompatActivity {
         mAdapter = new StudentsRecyclerAdapter(students);
         mRecyclerView.setAdapter(mAdapter);
     }
-    public void OpenAddNewStudent(View view){
-        Intent AddNewStudent = new Intent(FirstActivity.this, AddStudentActivity.class);
-        startActivity(AddNewStudent);
+    public void OpenCreateNewRecord(View view){
+        Intent CreateNewRecord = new Intent(FirstActivity.this, CreateNewRecordActivity.class);
+        startActivity(CreateNewRecord);
     }
 }
