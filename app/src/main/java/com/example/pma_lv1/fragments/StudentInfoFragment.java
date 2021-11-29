@@ -12,11 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.pma_lv1.R;
+import com.example.pma_lv1.managers.ApiManager;
+import com.example.pma_lv1.models.Instructors;
+import com.example.pma_lv1.models.ResponseAPI;
 import com.example.pma_lv1.viewModels.SummaryVM;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.ArrayList;
 
-public class StudentInfoFragment extends Fragment {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+public class StudentInfoFragment extends Fragment implements Callback<ResponseAPI> {
     private TextInputEditText etPredmet;
     private TextInputEditText etProfesor;
     private TextInputEditText etAkGodina;
@@ -31,6 +40,8 @@ public class StudentInfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ApiManager.getInstance().service().getCourses().enqueue(this); //asinkroni poziv
     }
 
     @Override
@@ -50,6 +61,20 @@ public class StudentInfoFragment extends Fragment {
         etPredavanja.addTextChangedListener(new TextChange(etPredavanja));
         etLabosi.addTextChangedListener(new TextChange(etLabosi));
         return viewModel;
+    }
+
+    @Override
+    public void onResponse(Call<ResponseAPI> call, Response<ResponseAPI> response) {
+
+    }
+
+    @Override
+    public void onFailure(Call<ResponseAPI> call, Throwable t) {
+
+    }
+
+    private void instructorNames(ArrayList<Instructors> instructors){
+        etProfesor.setText(instructors.toString());
     }
 
     private class TextChange implements TextWatcher {
