@@ -20,6 +20,8 @@
     <string name="brojLabosaKorisnik">Sati labosa: </string>
     <string name="profesorKorisnik">Profesor: </string>
     <string name="header">Studenti</string>
+    <string name="kamera">Kamera</string>
+
 
     <string name="btnHome">Home</string>
     <!-- TODO: Remove or change this placeholder text -->

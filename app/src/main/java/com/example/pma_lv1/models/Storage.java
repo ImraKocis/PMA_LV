@@ -1,5 +1,7 @@
 package com.example.pma_lv1.models;
 
+import android.graphics.Bitmap;
+
 import com.example.pma_lv1.viewModels.StudentVM;
 
 import java.util.ArrayList;
@@ -7,6 +9,8 @@ import java.util.List;
 
 public class Storage {
     private List<Object> dataList;
+
+
     static private Storage instance;
     private Storage(){
         dataList = new ArrayList<Object>();
@@ -17,7 +21,6 @@ public class Storage {
         }
         return instance;
     }
-
     public void addStudent(StudentVM student){
         this.dataList.add(student);
     }

@@ -1,5 +1,7 @@
 package com.example.pma_lv1.viewModels;
 
+
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -10,6 +12,8 @@ public class SummaryVM extends ViewModel {
     public MutableLiveData<Integer> change = new MutableLiveData<>();
     public MutableLiveData<Student> student = new MutableLiveData<>();
     public MutableLiveData<Course> course = new MutableLiveData<>();
+
+
 
     public SummaryVM(){
         Student s = new Student();
@@ -38,10 +42,13 @@ public class SummaryVM extends ViewModel {
         course.setValue(oCourse);
         change.setValue(2);
     }
+
     public Student getStudent(){
         return student.getValue();
     }
     public Course getCourse(){
         return course.getValue();
     }
+
+
 }
