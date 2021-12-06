@@ -30,50 +30,33 @@
         android:src="@drawable/ic_launcher_background"
         />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilPredmet"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:hint="@string/hintPredmet"
-        app:hintTextColor="@color/black"
-        android:background="@color/cardview_light_background"
-        app:layout_constraintTop_toBottomOf="@+id/ivImage"
-        android:layout_marginTop="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintWidth_percent="0.7">
+
         <Spinner
             android:id="@+id/spinnerPredmet"
+            app:layout_constraintTop_toBottomOf="@id/ivImage"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tilProfesor"
-        app:layout_constraintTop_toBottomOf="@+id/tilPredmet"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/tilAkademskaGodina"
-        app:layout_constraintWidth_percent="0.45"
-        >
+
 
         <Spinner
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/spinnerPredmet"
+            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
             android:id="@+id/spinnerProfesor"
             android:hint="@string/hintProfesor"
-            android:layout_marginTop="16dp"
             android:textSize="14dp"
             />
-    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/tilAkademskaGodina"
-        app:layout_constraintTop_toBottomOf="@+id/tilPredmet"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPredmet"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintWidth_percent="0.45"
 

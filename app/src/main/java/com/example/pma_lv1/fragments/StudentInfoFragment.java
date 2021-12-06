@@ -53,8 +53,12 @@ public class StudentInfoFragment extends Fragment implements Callback<ResponseAP
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         ApiManager.getInstance().service().getCourses().enqueue(this); //asinkroni poziv
+
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -121,29 +125,7 @@ public class StudentInfoFragment extends Fragment implements Callback<ResponseAP
         return viewModel;
     }
 
-    @Override
-    public void onResponse(Call<ResponseAPI> call, Response<ResponseAPI> response) {
-        if (response.isSuccessful() && response.body() != null){
-            responseAPI = (ResponseAPI) response.body();
-            for (CourseAPI courseAPI : responseAPI.courses){
-                if (courseAPI.title != null && !courseAPI.title.trim().isEmpty()){
-                    naziviPredmeta.add(courseAPI.title);
-                }
-                if (courseAPI.instructors != null){
-                    for (Instructors instructors : courseAPI.instructors){
-                        if (courseAPI.title != null && !courseAPI.title.trim().isEmpty()){
-                            predavaci.add(instructors.name);
-                        }
-                    }
-                }
-            }
-        }
-    }
 
-    @Override
-    public void onFailure(Call<ResponseAPI> call, Throwable t) {
-        t.printStackTrace();
-    }
 
 
     @Override
@@ -168,6 +150,30 @@ public class StudentInfoFragment extends Fragment implements Callback<ResponseAP
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onResponse(Call<ResponseAPI> call, Response<ResponseAPI> response) {
+        if (response.isSuccessful() && response.body() != null){
+            responseAPI = (ResponseAPI) response.body();
+            for (CourseAPI courseAPI : responseAPI.courses){
+                if (courseAPI.title != null && !courseAPI.title.trim().isEmpty()){
+                    naziviPredmeta.add(courseAPI.title);
+                }
+                if (courseAPI.instructors != null){
+                    for (Instructors instructors : courseAPI.instructors){
+                        if (courseAPI.title != null && !courseAPI.title.trim().isEmpty()){
+                            predavaci.add(instructors.name);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onFailure(Call<ResponseAPI> call, Throwable t) {
+        t.printStackTrace();
     }
 
     private class TextChange implements TextWatcher {
